@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quantico', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +19,172 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HOME  */
+
+.home {
+  position: relative;
+  background-image: linear-gradient(rgba(111, 12, 100, 0.975), rgba(100, 145, 194, 0), rgba(171, 134, 134, 0));
+  height: 100vh;
+}
+
+.home__bgImg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.header__container {
+  padding: 20px;
+}
+
+.header__row {
+  height: 25vh;
+}
+
+.header__description {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  color: rgb(218, 203, 31);
+  font-size: 50px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: 'DotGothic16', sans-serif;
+  margin-bottom: 40px;
+}
+
+.search {
+  position: relative;
+}
+
+.input__img {
+  width: 30px;
+  height: 30px;
+  z-index: 5;
+}
+
+.form__input {
+  width: 600px;
+  height: 50px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: large;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 300ms ease;
+}
+
+.form__input::placeholder {
+  color: white;
+}
+
+.form__input:hover {
+  color:rgba(255,255,255,.75);
+  border: 4px solid rgba(255,255,255,.75);
+  transition: all 200ms ease;
+}
+
+.form__input:hover::placeholder,
+.form__input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.281);
+  transition: all 300ms ease;
+}
+
+.form__input:focus {
+  color: #fff;
+}
+
+.form__input:focus {
+  outline: 0;
+  border: 2px solid rgba(255,255,255,.75);
+  background-color: #1fbd90;
+}
+
+.form__btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+}
+
+/* GAMES */
+
+#games__section {
+  background-color: #e82f98;
+  background-image: linear-gradient(225deg, #510831 0%, #784BA0 50%, #123d5c 100%);
+}
+
+.games__body {
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* GAME */
+
+.game {
+  text-align: center;
+  width: 30%;
+  margin: 12px;
+  padding-bottom: 40px;
+  border-width: 5px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      rgb(194, 25, 25), 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.game:hover {
+  transform: scale(1.03);
+  border: 4px solid rgb(241, 53, 53);
+  background-color: #9228647e;
+  transition: all 200ms ease;
+}
+
+.game__title {
+  padding: 12px;
+}
+
+.game > img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.game__rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff200;
+}
+
+@media (max-width: 768px) {
+  .home__bgImg {
+    width: unset;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
