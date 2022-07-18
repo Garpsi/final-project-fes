@@ -8,6 +8,7 @@ const Games = ({ getGames, games }) => {
   return (
     <section id="games__section">
       <Header onSubmit={getGames} />
+      
       <div className="games__body">
         {
           games.map(game => <Game game={game} key={game.id}/>).slice(0, 6)

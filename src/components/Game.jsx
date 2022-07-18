@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Game = ({ game }) => {
   return (
-      <Link to='/games' className="game">
+      <Link to={`/games/${game.id}`} className="game">
         <img
           src={game.background_image}
           alt=""
