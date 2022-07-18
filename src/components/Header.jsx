@@ -16,9 +16,8 @@ const Header = (props) => {
     props.onSearch(input)
   }
 
-  const searchGenre = event => {
-    event.preventDefault()
-    console.log(searchGenre)
+  function handleGenre(e) {
+    console.log(e.target.value)
   }
 
 
@@ -54,8 +53,8 @@ const Header = (props) => {
                     </button>
                   </form>
                   :
-                  <div className='genre__options'>
-                    <button onClick={searchGenre} value='Singleplayer' className="genre__option">
+                  <div className='genre__options' onClick={(e) => this.handleGenre(e, "value")} >
+                    <button value='Singleplayer' className="genre__option">
                       Singleplayer
                     </button>
                     <button value='Multiplayer' className="genre__option">
