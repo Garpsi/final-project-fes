@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Pacman from "../assets/pacman.png";
 import { useNavigate } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home';
 
-const Header = (props) => {
+const Header = (props, {handleSubmit}) => {
   let navigate = useNavigate()
+  // const searchRef = useRef(null)
   const [genreBtn, setGenreBtn] = useState(false)
   const [input, setInput] = useState('')
   const handleChange = (e) => {
     setInput(e.target.value)
   }
+
+  // function handleSubmit() {
+  //   navigate('/games',
+  //   {
+  //     state:{
+  //       id: searchRef.current.value
+  //     }
+  //   }
+  //   )
+  // }
 
   const search = (e) => {
     e.preventDefault()
@@ -41,12 +52,13 @@ const Header = (props) => {
               </div>
                 {
                   !genreBtn ?
-                  <form onSubmit={() => navigate('/games')} className="search" action="">
+                  <form onSubmit={handleSubmit} className="search" action="">
                     <input
                       className="form__input"
                       type="text"
                       placeholder="Find your game!"
                       onChange={handleChange}
+                      // ref = {searchRef}
                     />
                     <button type='submit' className="form__btn" onClick={search}>
                       <img className="input__img" src={Pacman} alt="" />
