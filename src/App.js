@@ -9,21 +9,32 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [games, setGames] = useState([]);
+  const [genreGames, setGenreGames] = useState([]);
 
   async function getGames(input) {
-    // if (input) {
       const { data } = await axios.get(
         `https://api.rawg.io/api/games?key=${API_KEY}&search=${input}`
       );
       const results = data.results;
       setGames(results);
       console.log(games)
-    // }
-    // setGames(false)
   }
 
   useEffect(() => {
     getGames();
+  }, []);
+
+  async function getGenreGames(genreInput) {
+      const { data } = await axios.get(
+        `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genreInput}`
+      );
+      const results = data.results;
+      setGenreGames(results);
+      console.log(genreGames)
+  }
+
+  useEffect(() => {
+    getGenreGames();
   }, []);
 
 
@@ -31,9 +42,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home getGames={getGames}  />} />
-          <Route exact path='/games' element={<Games games={games} getGames={getGames}/>} />
-          <Route exact path='/games/:id' element={<GameInfo games={games}/>} />
+          <Route exact path='/' element={<Home getGames={getGames} getGenreGames={getGenreGames} />} />
+          <Route exact path='/games' element={<Games games={games} getGames={getGames} getGenreGames={getGenreGames} genreGames={genreGames} />} />
+          <Route exact path='/games/:id' element={<GameInfo games={games} genreGames={genreGames}/>} />
         </Routes>
       </Router>
     </div>

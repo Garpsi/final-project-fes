@@ -177,18 +177,27 @@ button {
 .genre__option {
   font-size: 20px;
   margin: 0 8px;
-  padding: 8px 18px;
+  padding: 8px 24px;
   border: 2px solid #fff;
   border-radius: 100px;
   background-color: #1f6292;
   color: #29ff08;
-  cursor: pointer;
   transition: all 100ms ease;
+
+  font-size: 20px;
+  cursor: pointer;
 }
 
+
 .genre__option:hover {
-  color: #fff;
   background-color: #4bce37;
+  color: #fff;
+}
+
+.genre__options > button {
+  background: none;
+  border: none;
+  
 }
 
 /* GAMES */

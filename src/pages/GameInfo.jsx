@@ -8,7 +8,7 @@ import Game from "../components/Game";
 import { useNavigate } from 'react-router-dom'
 import { gamesData } from '../data'
 
-const GameInfo = ({ games }) => {
+const GameInfo = ({ games, genreGames }) => {
   let navigate = useNavigate()
   const { id } = useParams()
   let bookId = id
@@ -20,13 +20,11 @@ const GameInfo = ({ games }) => {
       `https://api.rawg.io/api/games/${bookId}?key=${API_KEY}`
     );
     setGameInfo(data);
-    console.log(gameInfo)
-    console.log(bookId)
   }
 
   useEffect(() => {
     getGameInfo();
-  }, []);
+  }, [id]);
 
   return (
     <div id="gamesInfo__section">
@@ -70,7 +68,7 @@ const GameInfo = ({ games }) => {
         <div className="games__recommended">
           {
             gamesData
-            .filter(game => +game.rating >= 4.0)
+            .filter(game => +game.rating >= 4.0 && +game.id !== +id)
             .map(game => <Game game={game} key={game.id}/>)
             .slice(0, 3)
           }

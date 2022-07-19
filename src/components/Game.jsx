@@ -3,6 +3,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { Link } from 'react-router-dom'
 
 const Game = ({ game }) => {
+
   return (
       <Link to={`/games/${game.id}`} className="game">
         <img
