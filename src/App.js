@@ -11,12 +11,15 @@ function App() {
   const [games, setGames] = useState([]);
 
   async function getGames(input) {
-    const { data } = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&search=${input}`
-    );
-    const results = data.results;
-    setGames(results);
-    console.log(games)
+    // if (input) {
+      const { data } = await axios.get(
+        `https://api.rawg.io/api/games?key=${API_KEY}&search=${input}`
+      );
+      const results = data.results;
+      setGames(results);
+      console.log(games)
+    // }
+    // setGames(false)
   }
 
   useEffect(() => {
@@ -28,7 +31,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home getGames={getGames}/>} />
+          <Route exact path='/' element={<Home getGames={getGames}  />} />
           <Route exact path='/games' element={<Games games={games} getGames={getGames}/>} />
           <Route exact path='/games/:id' element={<GameInfo games={games}/>} />
         </Routes>

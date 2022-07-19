@@ -6,6 +6,7 @@ import axios from "axios";
 import API_KEY from "../keys.js";
 import Game from "../components/Game";
 import { useNavigate } from 'react-router-dom'
+import { gamesData } from '../data'
 
 const GameInfo = ({ games }) => {
   let navigate = useNavigate()
@@ -58,15 +59,20 @@ const GameInfo = ({ games }) => {
             </div>
           </div>
           <div className="game__selected--summary">
-            {gameInfo.description_raw}
+            {
+              gameInfo.description_raw ?
+              gameInfo.description_raw
+              :
+              'No description available. Sorry!'
+            }
           </div>
         </div>
-        <div className="recommended__games">
+        <div className="games__recommended">
           {
-            games
-            .filter(game => +game.rating >= 4.5)
+            gamesData
+            .filter(game => +game.rating >= 4.0)
             .map(game => <Game game={game} key={game.id}/>)
-            .slice(3)
+            .slice(0, 3)
           }
         </div>
       </div>
