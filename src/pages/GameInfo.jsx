@@ -57,7 +57,7 @@ const GameInfo = () => {
                 <StarIcon />
                 <h3>{gameInfo.rating}</h3>
               </div>
-              <div className="release__data">
+              <div className="release__date">
                 <h2>Release Date: {gameInfo.released}</h2>
               </div>
               <div className="game__website">
