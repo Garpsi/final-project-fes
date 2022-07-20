@@ -16,6 +16,7 @@ const Header = (props) => {
   };
 
   function goToGames(e) {
+    
     e.preventDefault();
     navigate("/games");
   }
@@ -60,7 +61,9 @@ const Header = (props) => {
               </button>
             </div>
             {!genreBtn ? (
-              <form onSubmit={goToGames} className="search" action="">
+              <form 
+              onSubmit={goToGames} 
+              className="search" action="">
                 <input
                   className="form__input"
                   type="text"

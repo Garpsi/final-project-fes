@@ -245,6 +245,11 @@ button {
   justify-content: space-around;
 }
 
+.games__body > svg {
+  font-size: 100px;
+  animation: rotate 500ms infinite;
+}
+
 .no__results {
   font-size: 32px;
   font-weight: 600;
@@ -252,6 +257,16 @@ button {
   background-color: #2a0a1c;
   border-radius: 8px;
   padding: 0 8px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
 }
 
 /* GAME */
