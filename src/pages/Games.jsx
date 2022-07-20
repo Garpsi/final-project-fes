@@ -21,9 +21,7 @@ const Games = ({ getGames, games, getGenreGames, genreGames, loading }) => {
     }
 
   useEffect(() => {
-    setTimeout(() => {
-      DisplayGames()
-    }, 1000)
+    DisplayGames()
   }, [games, genreGames])
 
   return (

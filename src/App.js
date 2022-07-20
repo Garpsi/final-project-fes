@@ -28,9 +28,7 @@ function App() {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      getGames();
-    }, 1000)
+    getGames();
   }, []);
 
   async function getGenreGames(genreInput) {
@@ -46,9 +44,7 @@ function App() {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      getGenreGames();
-    }, 1000)
+    getGenreGames();
   }, []);
 
 
