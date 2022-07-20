@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Game from "../components/Game";
 
 
 const Games = ({ getGames, games, getGenreGames, genreGames }) => {
 
-  function renderGames() {
-    if (games) {
-      return games.map(game => <Game game={game} key={game.id}/>).slice(0, 6)
-    } 
-    <span className="no__results">Please search a title or choose a genre!</span>
+  // const NewComponent = renderGenre()
+
+  // games.map(game => <Game game={game} key={game.id}/>).slice(0, 6)
+
+
+  function RenderGenre() {
+    if (genreGames.length !== 0) {
+        return genreGames.slice().map(game => <Game game={game} key={game.id}/>).slice(0, 6)
+    }
+    return games.slice().map(game => <Game game={game} key={game.id}/>).slice(0, 6)
   }
 
-  function renderGenre() {
-    if (genreGames) {
-        return genreGames.map(game => <Game game={game} key={game.id}/>).slice(0, 6)
-    }
-    <span className="no__results">Please search a title or choose a genre!</span>
-  }
+  useEffect(() => {
+    RenderGenre()
+  }, [games, genreGames])
 
   return (
     <section id="games__section">
@@ -25,7 +27,9 @@ const Games = ({ getGames, games, getGenreGames, genreGames }) => {
       
       <div className="games__body">
         {
-          games ? renderGames() : renderGenre()
+          games.length === 0 && genreGames.length === 0 ? 
+          <span className="no__results">Please search a title that exists or choose a genre!</span>
+          : <RenderGenre />
         }
         {/* {
           games ?

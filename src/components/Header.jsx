@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Pacman from "../assets/pacman.png";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import Logo from '../assets/logo.png'
+import Pinky from '../assets/pinky.png'
 
 const Header = (props) => {
   let navigate = useNavigate();
@@ -42,7 +44,10 @@ const Header = (props) => {
       <div className="header__container">
         <div className="header__row">
           <div className="header__description">
-            <h1 className="header__title">Your Favourite Gaming Database</h1>
+            <div className="header__top">
+              <img className="header__logo" src={Logo} alt="" />
+              <h1 className="header__title">Your Favourite Gaming Database</h1>
+            </div>
             <div className="header__btns">
               <button onClick={() => changeName()} className="header__btn">
                 Name

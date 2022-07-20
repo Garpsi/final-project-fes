@@ -38,6 +38,31 @@ button {
   height: 100vh;
 }
 
+.header__top {
+  width: 100%;
+  position: relative;
+}
+
+.header__logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 12px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  opacity: 0.75;
+  transition: all 300ms ease;
+}
+
+.header__logo:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.header__title {
+  text-align: center;
+}
+
 .home > .header__description > .home__btn {
   display: none;
 }
@@ -122,6 +147,11 @@ button {
   width: 30px;
   height: 30px;
   z-index: 5;
+}
+
+.input__img:hover {
+  transform: scale(1.2);
+  transition: all 100ms ease;
 }
 
 .form__input {
@@ -309,8 +339,13 @@ button {
   justify-content: center;
 }
 
+.game__selected--fig {
+  max-width: 50%;
+}
+
 .game__selected--img {
   max-height: 280px;
+  max-width: 100%;
   width: auto;
   border: 4px solid black;
   border-radius: 6px;

@@ -12,6 +12,10 @@ function App() {
   const [genreGames, setGenreGames] = useState([]);
 
   async function getGames(input) {
+    setGenreGames([])
+    if (input === undefined) {
+      return
+    }
       const { data } = await axios.get(
         `https://api.rawg.io/api/games?key=${API_KEY}&search=${input}`
       );
@@ -25,6 +29,7 @@ function App() {
   }, []);
 
   async function getGenreGames(genreInput) {
+    setGames([])
       const { data } = await axios.get(
         `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genreInput}`
       );

@@ -8,7 +8,8 @@ import Game from "../components/Game";
 import { useNavigate } from 'react-router-dom'
 import { gamesData } from '../data'
 
-const GameInfo = ({ games, genreGames }) => {
+const GameInfo = () => {
+  const shuffledGames = shuffleArray(gamesData)
   let navigate = useNavigate()
   const { id } = useParams()
   let bookId = id
@@ -25,6 +26,17 @@ const GameInfo = ({ games, genreGames }) => {
   useEffect(() => {
     getGameInfo();
   }, [id]);
+
+  function shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
 
   return (
     <div id="gamesInfo__section">
@@ -67,7 +79,7 @@ const GameInfo = ({ games, genreGames }) => {
         </div>
         <div className="games__recommended">
           {
-            gamesData
+            shuffledGames
             .filter(game => +game.rating >= 4.0 && +game.id !== +id)
             .map(game => <Game game={game} key={game.id}/>)
             .slice(0, 3)
